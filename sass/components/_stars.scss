@@ -1,0 +1,57 @@
+/*****************
+  STARS BACKGROUND
+*******************/
+#stars {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadows-small;
+    animation: animateStars 50s linear infinite;
+    
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: $default-size + px;
+      width: 1px;
+      height: 1px;
+      background: transparent;
+      box-shadow: $shadows-small;
+    }
+  }
+  
+  #stars2 {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium;
+    animation: animateStars 100s linear infinite;
+    
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: $default-size + px;
+      width: 2px;
+      height: 2px;
+      background: transparent;
+      box-shadow: $shadows-small;
+    }
+  }
+  
+  #stars3 {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadows-big;
+    animation: animateStars 150s linear infinite;
+    
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: $default-size + px;
+      width: 3px;
+      height: 3px;
+      background: transparent;
+      box-shadow: $shadows-big;
+    }
+  }
+  

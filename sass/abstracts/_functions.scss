@@ -1,0 +1,21 @@
+
+/***  STARS  *****/
+$default-size: 2000;
+
+// n is number of stars required, size is the height/width in which the stars will be generated
+@function multiple-box-shadow ($n,$size,$color1,$color2) {
+    $value: '#{random(2000)}px #{random($size)}px #{$color1}';
+    @for $i from 2 through $n {
+      @if $i % 2 == 0 {
+        $value: '#{$value} , #{random($size)}px #{random($size)}px #{$color1}';
+      } @else {
+        $value: '#{$value} , #{random($size)}px #{random($size)}px #{$color2}';
+      }
+    }
+    @return unquote($value);
+  }
+  
+  $shadows-small:  multiple-box-shadow(300,$default-size,#a2c3e0,#e0a2a2);
+  $shadows-medium: multiple-box-shadow(200,$default-size,#a2c3e0,#e0a2a2);
+  $shadows-big:    multiple-box-shadow(100,$default-size,#a2c3e0,#e0a2a2);
+  

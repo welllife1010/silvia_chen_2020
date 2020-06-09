@@ -1,0 +1,122 @@
+.btn {
+    &,
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1rem 3rem;
+        display: inline-block;
+        border-radius: .5rem;
+        transition: all .2s; 
+        /* Has to be on the initial state */
+        /* All the properties are enable to be animated */
+        position: relative;
+        font-size: $default-font-size;
+
+        //Change for the <button> element
+        border: none;
+        cursor: pointer;
+    }
+
+    &:hover {
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active,
+    &:focus {
+        outline: none;
+        transform: translateY(-.1rem);
+        box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+    }
+
+    &--white {
+        background-color: $color-white;
+        //color: $color-grey-dark;
+        background-image: linear-gradient(to right, $color-primary, $color-secondary-light);
+        -webkit-background-clip: text;
+        color: transparent;
+        letter-spacing: .1rem; 
+        
+
+        &::after {
+            background-color: $color-white;
+        }
+
+    }
+
+    &--purple {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            background-color: $color-primary;
+        }
+    }
+
+    /* The ::after psuedo element is basically treated as a child of the btn element */
+    &::after {
+        content:"";
+        display: inline-block;
+        height: 100%; /* 100% of the btn's height */
+        width: 100%;
+        border-radius: .5rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+
+    }
+
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+        animation-fill-mode: backwards;
+        /* Automatically apply the opacity 0 to the .btn before the animation starts */
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+        transition: all .2s;
+
+        background-image: linear-gradient(to right, $color-primary, $color-secondary-light);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+    }
+
+    &:hover {
+        //background: linear-gradient(to right, $color-primary, $color-secondary-light);
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        transform: translateY(-2px);
+    }
+
+    &:active {
+        box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+        transform: translateY(0);
+    }
+
+    &-small {
+            border: 1.3px solid $color-primary;
+            border-radius: 2px;
+            padding: 3px 1.5rem !important;
+            
+            &:not(last-child) {
+                margin-right: 2.5rem; 
+            }
+    }
+}
