@@ -111,9 +111,12 @@
     }
 
     &-small {
-            border: 1.3px solid $color-primary;
             border-radius: 2px;
             padding: 3px 1.5rem !important;
+
+            &-1 {
+                border: 1.4px solid $color-secondary-light;
+            }
             
             &:not(last-child) {
                 margin-right: 2.5rem; 
