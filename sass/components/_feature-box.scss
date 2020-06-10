@@ -13,10 +13,10 @@
 
     &__icon {
         font-size: 5rem;
-        margin-bottom: 2.5rem;
+        margin: 3rem 0rem;
         display: inline-block;
         //background-image: linear-gradient(to right, $color-primary-light, $color-secondary-light);
-        -webkit-background-clip: text;
+        //-webkit-background-clip: text;
         //color: transparent;
         color: $color-grey-dark-3;
 
@@ -27,10 +27,15 @@
 
     & h3 {
         font-size: 2rem;
+        font-weight: 300;
     }
 
     &__text {
         text-align: left;
+
+        @include respond(tab-port) {
+            text-align: center;
+        }
     }
 
     &:hover {
