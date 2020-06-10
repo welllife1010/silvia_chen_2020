@@ -480,6 +480,22 @@
 
 
         <script>
+
+
+            /* mb-nav test */
+            let navBtn = document.getElementById('navi-toggle');
+            let navItems = document.getElementsByClassName('mb-navigation__item');
+            let navCount = navItems.length;
+            for (let i=0; i<navCount; i++) {
+                navItems[i].addEventListener('click', function(e) {
+                    //e.preventDefault();
+                    console.log('nav__item clicked');
+                    !navBtn.checked ? navBtn.checked = true : navBtn.checked = false;
+                });
+            };
+
+
+
             window.addEventListener("DOMContentLoaded", function() {
           
               // get the form elements defined in your form HTML above

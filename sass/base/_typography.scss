@@ -17,15 +17,20 @@ body {
         display: block;
         font-size: 6rem;
         font-weight: 400;
-        letter-spacing: 3.5rem;
+        letter-spacing: 3rem;
     
         animation-name: moveInLeft;
         animation-duration: 1s; 
         animation-timing-function: ease-out; 
 
-        @include respond(phone) {
+        @include respond(tab-port) {
             letter-spacing: 1rem;
-            font-size: 5rem;
+            font-size: 4rem;
+        }
+
+        @include respond(phone) {
+            letter-spacing: .75rem;
+            font-size: 3.75rem;
         }
 
     }
@@ -38,9 +43,13 @@ body {
     
         animation: moveInRight 1s ease-out;
 
-        @include respond(phone) {
+        @include respond(tab-port) {
             letter-spacing: .5rem;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        @include respond(phone) {
+            font-weight: 300;
         }
 
     }

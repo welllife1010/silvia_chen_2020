@@ -19,16 +19,17 @@
             border-top-left-radius: 3px;
             border-top-right-radius: 3px;
 
+
             &--1 {
-                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/natours-front-end.png);
+                background-image: /*linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), */url(../img/natours-front-end.png);
             }
 
             &--2 {
-                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/trillo-front-end.png);
+                background-image: /*linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), */url(../img/trillo-front-end.png);
             }
 
             &--3 {
-                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/forkify.png);
+                background-image: /*linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), */url(../img/forkify.png);
             }
         }
 
