@@ -30,7 +30,7 @@ body {
 
         @include respond(phone) {
             letter-spacing: .75rem;
-            font-size: 3.75rem;
+            font-size: 3rem;
         }
 
     }
@@ -50,6 +50,7 @@ body {
 
         @include respond(phone) {
             font-weight: 300;
+            font-size: 1.25rem;
         }
 
     }
