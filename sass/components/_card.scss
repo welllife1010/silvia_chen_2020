@@ -1,103 +1,124 @@
 .portfolio {
-    position: relative;
-    height: 55rem;
-    & .project {
-        &__card {
-            height: 100%;
-            transition: all .8s ease;
-            width: 100%;
-            border-radius: 3px;
-            overflow: hidden;
-            background-color: $color-white;
-            box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
-        }
-
-        &__picture {
-            background-size: cover;
-            height: 23rem;
-            background-blend-mode:screen;
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
-
-
-            &--1 {
-                background-image: /*linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), */url(../img/natours-front-end.png);
-            }
-
-            &--2 {
-                background-image: /*linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), */url(../img/trillo-front-end.png);
-            }
-
-            &--3 {
-                background-image: /*linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), */url(../img/forkify.png);
-            }
-        }
-
-        &__details {
-            padding: 2rem;
-        }
-
-        &__icons {
-            & i {
-                font-size: 2rem;
-                color: $color-grey-dark-3;
-    
-                &:not(:last-child) {
-                    padding-right: 1rem;
-                }
-            }          
-        }
-
-        &__heading {
-            font-size: 2.5rem;
-            font-weight: 300; 
-            padding-bottom: .5rem;
-            -webkit-background-clip: text;
-            color: transparent;
-            background-image: linear-gradient(to right, $color-primary, $color-secondary-light);
-        }
-
-        &__title small {
-            font-size: 1.5rem;
-            font-style: italic;
-            font-weight: 300; 
-        }
-
-        &__text {
-            padding: 3rem 0;
-            font-size: 1.8rem;
-            line-height: 2.5rem;
-            font-weight: 300; 
-        }
-
-        &__btn {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-    }
-    
-    &:hover .project__card {
-        transform: translateY(1.5rem);
+  position: relative;
+  height: 55rem;
+  & .project {
+    &__card {
+      height: 100%;
+      transition: all 0.8s ease;
+      width: 100%;
+      border-radius: 3px;
+      overflow: hidden;
+      background-color: $color-white;
+      box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
     }
 
+    &__picture {
+      background-size: cover;
+      height: 23rem;
+      background-blend-mode: screen;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
 
-    //@include respond(tab-port) {
-    @media only screen and (max-width: 56.25em),
-           only screen and (hover:none) {
-        height: auto;
-        border-radius:3px;
-        background-color: $color-white; 
-        box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+      // Come back and find a good alt function to avoid the repeatitive codes. - 2021/01
+      &--1 {
+        background-image: /*linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), */ url(../img/natours-front-end.png);
+      }
 
-        & .project__card {
-            height: auto;
-            position: relative; 
-            box-shadow: none;
-        }      
+      &--2 {
+        background-image: /*linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), */ url(../img/trillo-front-end.png);
+      }
+
+      &--3 {
+        background-image: /*linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), */ url(../img/forkify.png);
+      }
+
+      &--4 {
+        background-image: url(../img/ting-chen.png);
+      }
+
+      &--5 {
+        background-image: url(../img/aaacademy.png);
+      }
+
+      &--6 {
+        background-image: url(../img/nexter.png);
+      }
+
+      &--7 {
+        background-image: url(../img/arborexhaust.png);
+      }
+
+      &--8 {
+        background-image: url(../img/noccc.png);
+      }
+
+      &--9 {
+        background-image: url(../img/mccady.png);
+      }
     }
 
+    &__details {
+      padding: 2rem;
+    }
+
+    &__icons {
+      & i {
+        font-size: 2rem;
+        color: $color-grey-dark-3;
+
+        &:not(:last-child) {
+          padding-right: 1rem;
+        }
+      }
+    }
+
+    &__heading {
+      font-size: 2.5rem;
+      font-weight: 300;
+      padding-bottom: 0.5rem;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(
+        to right,
+        $color-primary,
+        $color-secondary-light
+      );
+    }
+
+    &__title small {
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    &__text {
+      padding: 3rem 0;
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+      font-weight: 300;
+    }
+
+    &__btn {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  &:hover .project__card {
+    transform: translateY(1.5rem);
+  }
+
+  //@include respond(tab-port) {
+  @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+    height: auto;
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+
+    & .project__card {
+      height: auto;
+      position: relative;
+      box-shadow: none;
+    }
+  }
 }
-
-
-

@@ -1,239 +1,243 @@
 .navigation {
-    width: 100%;
-    height: 6rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    font-weight: 300;
-    color: $color-white;
-    
-    background: rgba(0,0,0,0.8);
-    box-shadow: 0 1rem 3rem rgba($color-black, .1);
-    z-index: 2000;
+  width: 100%;
+  height: 6rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: $color-white;
 
-    @include respond(tab-port) {
-        display: none;
-    }
-    
-    &__list {
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      letter-spacing: .2rem;
-    }
-    
-    &__link:link,
-    &__link:visited {
-      padding: 0 3rem;
-      text-decoration: none;
-      color: $color-white;
-    }
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+  z-index: 2000;
+
+  @include respond(tab-port) {
+    display: none;
   }
 
+  &__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.2rem;
+  }
+
+  &__link:link,
+  &__link:visited {
+    padding: 0 3rem;
+    text-decoration: none;
+    color: $color-white;
+  }
+}
 
 // MOBILE NAVIGATION
 .mb-navigation {
+  display: none;
 
+  @include respond(tab-port) {
+    display: block;
+  }
+
+  &__checkbox {
     display: none;
+  }
+
+  &__button {
+    background-color: $color-white;
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    top: 6rem;
+    right: 6rem;
+    border-radius: 50%;
+    z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, 0.1);
+    text-align: center; //to center the span icon horizontally
+    cursor: pointer;
 
     @include respond(tab-port) {
-        display: block;
+      top: 4rem;
+      right: 4rem;
     }
 
-    &__checkbox {
-        display: none;
+    @include respond(phone) {
+      top: 3rem;
+      right: 3rem;
+    }
+  }
+
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    background-image: radial-gradient($color-primary, $color-secondary-light);
+    z-index: 1000;
+    transition: transform 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+
+    @include respond(tab-port) {
+      top: 4.5rem;
+      right: 4.5rem;
     }
 
-    &__button {
-        background-color: $color-white;
-        height: 7rem;
-        width: 7rem;
-        position: fixed;
-        top: 6rem;
-        right: 6rem;
-        border-radius: 50%;
-        z-index: 2000;
-        box-shadow: 0 1rem 3rem rgba($color-black, .1);
-        text-align: center; //to center the span icon horizontally
-        cursor: pointer;
+    @include respond(phone) {
+      top: 3.5rem;
+      right: 3.5rem;
+    }
+  }
 
-        @include respond(tab-port) {
-            top: 4rem;
-            right: 4rem;
-        }
+  &__nav {
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1500;
 
-        @include respond(phone) {
-            top: 3rem;
-            right: 3rem;
-        }
+    opacity: 0;
+    width: 0;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  &__list {
+    @include absCenter;
+    list-style: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__item {
+    margin: 1rem;
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      display: inline-block;
+      font-size: 3rem;
+      font-weight: 300;
+      padding: 1rem 2rem;
+      color: $color-white;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-image: linear-gradient(
+        120deg,
+        transparent 0%,
+        transparent 50%,
+        $color-white 50%
+      );
+      background-size: 225%;
+      transition: all 0.4s;
+
+      span {
+        margin-right: 1.5rem;
+        display: inline-block;
+      }
     }
 
-    &__background {
-        height: 6rem;
-        width: 6rem;
-        border-radius: 50%;
-        position: fixed;
-        top: 6.5rem;
-        right: 6.5rem;
-        background-image: radial-gradient($color-primary,
-        $color-secondary-light);
-        z-index:1000;
-        transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+    &:hover,
+    &:active {
+      background-position: 100%;
+      color: $color-primary;
+      transform: translateX(1rem);
+    }
+  }
 
-        @include respond(tab-port) {
-            top: 4.5rem;
-            right: 4.5rem;
-        }
+  //FUNCTIONALITY
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+  //checkbox hack - we hit the label so the checkbox becomes checked, then we want the navigation background become visible.
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+  }
 
-        @include respond(phone) {
-            top: 3.5rem;
-            right: 3.5rem;
-        }
-    
+  //ICON
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
     }
 
-    &__nav {
-        height: 100vh;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1500;
-
-        opacity: 0;
-        width: 0;
-        transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all 0.2s;
     }
 
-    &__list {
-        @include absCenter;
-        list-style: none;
-        text-align: center;
-        width: 100%;
+    &::before {
+      top: -0.8rem;
     }
 
-    &__item {
-        margin: 1rem;
+    &::after {
+      top: 0.8rem;
     }
+  }
 
-    &__link {
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
 
-        &:link,
-        &:visited {
-            display: inline-block;
-            font-size: 3rem;
-            font-weight: 300;
-            padding: 1rem 2rem;
-            color: $color-white;
-            text-decoration: none;
-            text-transform: uppercase;
-            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
-            background-size: 225%;
-            transition: all .4s;
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
 
-            span {
-                margin-right: 1.5rem;
-                display: inline-block;
-            }
-        }
+  &__checkbox:checked + &__button &__icon {
+    background-color: transparent;
+  }
 
-        &:hover,
-        &:active {
-            background-position: 100%;
-            color: $color-primary;
-            transform: translateX(1rem);
-        }
-        
-    }
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
 
-    //FUNCTIONALITY
-    &__checkbox:checked ~ &__background {
-        transform: scale(80);
-    }
-    //checkbox hack - we hit the label so the checkbox becomes checked, then we want the navigation background become visible.
-    &__checkbox:checked ~ &__nav {
-        opacity: 1;
-        width: 100%;
-    }
-
-    //ICON
-    &__icon {
-        position: relative;
-        margin-top: 3.5rem;
-
-        &,
-        &::before,
-        &::after {
-            width: 3rem;
-            height: 2px;
-            background-color: $color-grey-dark-3;
-            display: inline-block;
-        }
-
-        &::before,
-        &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            transition: all .2s;
-        }
-
-        &::before { top: -.8rem; }
-
-        &::after { top: .8rem; }
-    }
-
-    &__button:hover &__icon::before {
-        top: -1rem;
-    }
-
-    &__button:hover &__icon::after {
-        top: 1rem;
-    }
-
-    &__checkbox:checked + &__button &__icon {
-        background-color: transparent;
-    }
-
-    &__checkbox:checked + &__button &__icon::before {
-        top: 0;
-        transform: rotate(135deg);
-    }
-
-    &__checkbox:checked + &__button &__icon::after {
-        top: 0;
-        transform: rotate(-135deg);
-    }
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
 }
 
 //ASIDE
-.aside { 
-    margin: 5rem 0;
-    width: 5%;
-    height: 65vh;
-    font-size: 1.5rem;
-    letter-spacing: .3rem;
-    padding-right: 2rem;
-    writing-mode: vertical-rl; 
-    float: right;
-    text-align: center;
+.aside {
+  margin: 5rem 0;
+  width: 5%;
+  height: 65vh;
+  font-size: 1.5rem;
+  letter-spacing: 0.3rem;
+  padding-right: 2rem;
+  writing-mode: vertical-rl;
+  float: right;
+  text-align: center;
+  z-index: 999999999;
 
-    & span {
-       padding: 5.5rem 0;
-    }
+  & span {
+    padding: 5.5rem 0;
+    //cursor: pointer; // ???
+  }
 
-    &__link:link,
-    &__link:visited {
-        text-decoration: none;
-        color: $color-white;
-        cursor: pointer; //??
-    }
-  
-    /*
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: $color-white;
+  }
+
+  /*
     -moz-transform: rotate(90deg); 
     -o-transform: rotate(90deg);  
     -webkit-transform: rotate(-90deg);  
@@ -241,5 +245,4 @@
     -o-transform-origin: 100% 100%;
     -webkit-transform-origin: 100% 100%;
     */
-    
-  }
+}
