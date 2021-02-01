@@ -1,0 +1,60 @@
+/*****************
+  3D CUBE
+******************/
+.scene {
+  height: 100vh;
+  perspective: 40rem;
+}
+
+[class*="cube"] {
+  position: absolute;
+}
+
+.cube {
+  transform-style: preserve-3d;
+  top: 47%;
+  left: 50%;
+  animation: animateCube 10s linear infinite;
+
+  &__face {
+    margin: -0.5 * $cube-edge;
+    width: $cube-edge;
+    height: $cube-edge;
+    border-width: 0.45rem;
+    border-style: solid;
+    border-image: linear-gradient(
+        to left,
+        rgba(116, 58, 213, 0.3),
+        rgba(213, 59, 157, 0.3)
+      )
+      1;
+    //box-shadow:  -2rem 0rem 15rem 1rem rgba(112, 139, 162, 0.3), 2rem 0rem 15rem 1rem rgba(176, 146, 147, 0.3);
+
+    --i: 0;
+    transform: rotate3d(
+        var(--i, 0),
+        calc(1 - var(--i)),
+        0,
+        calc(var(--m, 0) * 90deg)
+      )
+      translateZ(0.5 * $cube-edge);
+    &:nth-child(n + 5) {
+      --i: 1;
+    }
+    &:nth-child(2) {
+      --m: 1;
+    }
+    &:nth-child(3) {
+      --m: 2;
+    }
+    &:nth-child(4) {
+      --m: 3;
+    }
+    &:nth-child(5) {
+      --m: 1;
+    }
+    &:nth-child(6) {
+      --m: -1;
+    }
+  }
+}
